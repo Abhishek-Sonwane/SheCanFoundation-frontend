@@ -6,14 +6,14 @@ const Dashboard = () => {
 	const [users, setUsers] = useState([]);
 	const getUsersData = async () => {
 		try {
-			const response = await axios.get(process.env.BACKEND_URL + "/users");
+			const response = await axios.get(
+				import.meta.env.VITE_BACKEND_URL + "/users"
+			);
 			setUsers(response.data.data);
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
-	console.log(users);
 
 	useEffect(() => {
 		getUsersData();

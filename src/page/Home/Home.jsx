@@ -8,7 +8,9 @@ const Home = () => {
 
 	const getUsersData = async () => {
 		try {
-			const response = await axios.get(process.env.BACKEND_URL + "/users");
+			const response = await axios.get(
+				import.meta.env.VITE_BACKEND_URL + "/users"
+			);
 			setUsers(response.data.data);
 		} catch (error) {
 			console.log(error);
